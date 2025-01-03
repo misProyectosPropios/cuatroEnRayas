@@ -13,4 +13,17 @@ public class Tablero {
     private void initTablero() {
 
     }
+
+    public Tablero() {
+        this.initTablero();
+    }
+
+    /**
+     *
+     * @param column to add the piece. Require to not be full
+     * @param piece to add to the column
+     */
+    public void addFichaToColumn(int column, Ficha piece) {
+
+    }
 }
