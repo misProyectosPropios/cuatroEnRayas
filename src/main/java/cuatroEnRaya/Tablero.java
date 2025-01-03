@@ -3,6 +3,12 @@ package cuatroEnRaya;
 public class Tablero {
     final private int columna = 7;
     final private int fila = 6;
-    Ficha[][] tablero = new Ficha[fila][columna];
+    Ficha[][] board = new Ficha[fila][columna];
 
+    /**
+     * Init the array named board to be all null
+     */
+    private void initTablero() {
+
+    }
 }
