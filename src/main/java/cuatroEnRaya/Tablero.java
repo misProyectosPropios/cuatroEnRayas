@@ -45,4 +45,15 @@ public class Tablero {
         return false;
     }
 
+    /**
+     * This method returns who wins the game.
+     * Require to have only one possible winner
+     * @return the player that won. If there's none, return Jugador.NONE
+     */
+    private Jugador isThereHorizontalWinner() {
+
+
+        return Jugador.NONE;
+    }
+
 }
