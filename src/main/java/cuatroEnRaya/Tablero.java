@@ -11,7 +11,14 @@ public class Tablero {
      * and init numPieces to be 0
      */
     private void initTablero() {
-
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < columna; j++) {
+                board[i][j] = null;
+            }
+        }
+        for (int i = 0; i < columna; i++) {
+            numPieces[i] = 0;
+        }
     }
 
     public Tablero() {
@@ -24,7 +31,9 @@ public class Tablero {
      * @param piece to add to the column
      */
     public void addFichaToColumn(int column, Ficha piece) {
-
+        int row = numPieces[column];
+        board[fila - row][column] = piece;
+        numPieces[column]++;
     }
 
     /**
@@ -35,4 +44,5 @@ public class Tablero {
     public boolean isThereWinner() {
         return false;
     }
+
 }
