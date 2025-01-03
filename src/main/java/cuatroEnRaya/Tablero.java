@@ -26,4 +26,13 @@ public class Tablero {
     public void addFichaToColumn(int column, Ficha piece) {
 
     }
+
+    /**
+     * This method returns who wins the game.
+     * Require to have only one possible winner
+     * @return
+     */
+    public boolean isThereWinner() {
+        return false;
+    }
 }
