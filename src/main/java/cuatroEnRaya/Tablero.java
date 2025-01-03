@@ -56,4 +56,22 @@ public class Tablero {
         return Jugador.NONE;
     }
 
+    /**
+     * This method returns who wins the game vertically.
+     * Require to have only one possible winner
+     * @return the player that won. If there's none, return Jugador.NONE
+     */
+    private Jugador isThereVerticalWinner() {
+        return Jugador.NONE;
+    }
+
+    /**
+     * This method returns who wins the game diagonally.
+     * Require to have only one possible winner
+     * @return the player that won. If there's none, return Jugador.NONE
+     */
+    private Jugador isThereDiagonalWinner() {
+        return Jugador.NONE;
+    }
+
 }
