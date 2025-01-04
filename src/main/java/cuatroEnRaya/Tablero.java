@@ -51,8 +51,13 @@ public class Tablero {
      * @return the player that won. If there's none, return Jugador.NONE
      */
     private Jugador isThereHorizontalWinner() {
-
-
+        for(int i = 0; i < fila; i++) {
+            for(int j = 0; j < columna - 3; j++) {
+                if(board[i][j] != null && board[i][j] == board[i][j + 1] && board[i][j] == board[i][j + 2] && board[i][j] == board[i][j + 3]) {
+                    return Jugador.getJugadorFromFicha(board[i][j]);
+                }
+            }
+        }
         return Jugador.NONE;
     }
 
@@ -62,6 +67,13 @@ public class Tablero {
      * @return the player that won. If there's none, return Jugador.NONE
      */
     private Jugador isThereVerticalWinner() {
+        for(int i = 0; i < fila - 3; i++) {
+            for(int j = 0; j < columna; j++) {
+                if(board[i][j] != null && board[i][j] == board[i + 1][j] && board[i][j] == board[i + 2][j] && board[i][j] == board[i + 3][j]) {
+                    return Jugador.getJugadorFromFicha(board[i][j]);
+                }
+            }
+        }
         return Jugador.NONE;
     }
 
@@ -71,6 +83,13 @@ public class Tablero {
      * @return the player that won. If there's none, return Jugador.NONE
      */
     private Jugador isThereDiagonalWinner() {
+        for(int i = 0; i < fila - 3; i++) {
+            for(int j = 0; j < columna - 3; j++) {
+                if(board[i][j] != null && board[i][j] == board[i + 1][j + 1] && board[i][j] == board[i + 2][j + 2] && board[i][j] == board[i + 3][j + 3]) {
+                    return Jugador.getJugadorFromFicha(board[i][j]);
+                }
+            }
+        }
         return Jugador.NONE;
     }
 
