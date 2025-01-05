@@ -35,6 +35,10 @@ public class Tablero {
         return this.numPlays == this.columna * this.fila;
     }
 
+    public void showTablero() {
+
+    }
+
     /**
      *
      * @param column to add the piece. Require to not be full
