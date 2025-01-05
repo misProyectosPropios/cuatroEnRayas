@@ -128,7 +128,7 @@ public class Tablero {
         do {
             System.out.println("Enter a column (from 1 to " + this.columna + ")");
             columnaIngresada = Tablero.scanner.nextInt();
-        } while(columnaIngresada < 1 && columnaIngresada > this.columna);
+        } while(columnaIngresada < 1 || columnaIngresada > this.columna);
         return columnaIngresada;
     }
 
