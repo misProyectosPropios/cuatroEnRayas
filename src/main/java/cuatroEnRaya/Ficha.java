@@ -1,9 +1,18 @@
 package cuatroEnRaya;
 
 public enum Ficha {
-    YELLOW,
-    RED,
-    NONE;
+    YELLOW("🟡"),
+    RED("🔴"),
+    NONE("⚫");
+
+    String color;
+    Ficha(String color) {
+        this.color = color;
+    }
+
+    public String getCircleColor() {
+        return this.color;
+    }
 
     public static Ficha fichaOpuesta(Ficha piece) {
         if (piece == Ficha.RED) return Ficha.YELLOW;
