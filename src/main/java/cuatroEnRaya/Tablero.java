@@ -41,8 +41,17 @@ public class Tablero {
      * Require to have only one possible winner
      * @return
      */
-    public boolean isThereWinner() {
-        return false;
+    public Jugador isThereWinner() {
+        Jugador horizontalWinner = this.isThereHorizontalWinner();
+        if (horizontalWinner != Jugador.NONE) {
+            return horizontalWinner;
+        }
+        Jugador verticalWinner = this.isThereVerticalWinner();
+        if (verticalWinner != Jugador.NONE) {
+            return verticalWinner;
+        }
+
+        return this.isThereDiagonalWinner();
     }
 
     /**
