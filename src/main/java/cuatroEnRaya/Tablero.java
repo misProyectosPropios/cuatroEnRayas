@@ -36,7 +36,15 @@ public class Tablero {
     }
 
     public void showTablero() {
-
+        for(int i = 0; i < this.fila; i++) {
+            for(int j = 0; j < this.columna; j++) {
+                if (j == this.columna - 1) {
+                    System.out.print(this.board[i][j].getCircleColor());
+                } else {
+                    System.out.println(this.board[i][j].getCircleColor() + " |");
+                }
+            }
+        }
     }
 
     /**
