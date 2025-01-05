@@ -32,10 +32,19 @@ public class Tablero {
      * @param column to add the piece. Require to not be full
      * @param piece to add to the column
      */
-    public void addFichaToColumn(int column, Ficha piece) {
+    private void addFichaToColumn(int column, Ficha piece) {
         int row = numPieces[column];
         board[fila - row][column] = piece;
         numPieces[column]++;
+    }
+
+    /**
+     * Adds the ficha that is set beforehand to the desire column
+     * @param column to add the piece. Require to not be full
+     */
+    public void addFichaToColum(int column) {
+        addFichaToColumn(column, Ficha.associateJugadorToFicha(jugadorToPlay));
+        jugadorToPlay = jugadorToPlay.getOpponent();
     }
 
     /**
