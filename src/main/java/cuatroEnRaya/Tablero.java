@@ -6,6 +6,7 @@ public class Tablero {
     private Ficha[][] board = new Ficha[fila][columna];
     private int[] numPieces = new int[columna];
     private Jugador jugadorToPlay;
+    private int numPlays = 0;
 
     /**
      * Init the array named board to be all null
@@ -27,6 +28,10 @@ public class Tablero {
         jugadorToPlay = jugador;
     }
 
+    public boolean isGameFull() {
+        return this.numPlays == this.columna * this.fila;
+    }
+
     /**
      *
      * @param column to add the piece. Require to not be full
@@ -45,6 +50,7 @@ public class Tablero {
     public void addFichaToColum(int column) {
         addFichaToColumn(column, Ficha.associateJugadorToFicha(jugadorToPlay));
         jugadorToPlay = jugadorToPlay.getOpponent();
+        numPlays++;
     }
 
     /**
