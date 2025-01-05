@@ -18,7 +18,7 @@ public class Tablero {
     private void initTablero() {
         for (int i = 0; i < fila; i++) {
             for (int j = 0; j < columna; j++) {
-                board[i][j] = null;
+                board[i][j] = Ficha.NONE;
             }
         }
         for (int i = 0; i < columna; i++) {
@@ -39,9 +39,9 @@ public class Tablero {
         for(int i = 0; i < this.fila; i++) {
             for(int j = 0; j < this.columna; j++) {
                 if (j == this.columna - 1) {
-                    System.out.print(this.board[i][j].getCircleColor());
+                    System.out.println(this.board[i][j].getCircleColor());
                 } else {
-                    System.out.println(this.board[i][j].getCircleColor() + " |");
+                    System.out.print(this.board[i][j].getCircleColor() + " |");
                 }
             }
         }
@@ -54,7 +54,7 @@ public class Tablero {
      */
     private void addFichaToColumn(int column, Ficha piece) {
         int row = numPieces[column];
-        board[fila - row][column] = piece;
+        board[fila - row - 1][column] = piece;
         numPieces[column]++;
     }
 
@@ -94,7 +94,7 @@ public class Tablero {
     private Jugador isThereHorizontalWinner() {
         for(int i = 0; i < fila; i++) {
             for(int j = 0; j < columna - 3; j++) {
-                if(board[i][j] != null && board[i][j] == board[i][j + 1] && board[i][j] == board[i][j + 2] && board[i][j] == board[i][j + 3]) {
+                if(board[i][j] != Ficha.NONE && board[i][j] == board[i][j + 1] && board[i][j] == board[i][j + 2] && board[i][j] == board[i][j + 3]) {
                     return Jugador.getJugadorFromFicha(board[i][j]);
                 }
             }
@@ -110,7 +110,7 @@ public class Tablero {
     private Jugador isThereVerticalWinner() {
         for(int i = 0; i < fila - 3; i++) {
             for(int j = 0; j < columna; j++) {
-                if(board[i][j] != null && board[i][j] == board[i + 1][j] && board[i][j] == board[i + 2][j] && board[i][j] == board[i + 3][j]) {
+                if(board[i][j] != Ficha.NONE && board[i][j] == board[i + 1][j] && board[i][j] == board[i + 2][j] && board[i][j] == board[i + 3][j]) {
                     return Jugador.getJugadorFromFicha(board[i][j]);
                 }
             }
@@ -126,7 +126,7 @@ public class Tablero {
     private Jugador isThereDiagonalWinner() {
         for(int i = 0; i < fila - 3; i++) {
             for(int j = 0; j < columna - 3; j++) {
-                if(board[i][j] != null && board[i][j] == board[i + 1][j + 1] && board[i][j] == board[i + 2][j + 2] && board[i][j] == board[i + 3][j + 3]) {
+                if(board[i][j] != Ficha.NONE && board[i][j] == board[i + 1][j + 1] && board[i][j] == board[i + 2][j + 2] && board[i][j] == board[i + 3][j + 3]) {
                     return Jugador.getJugadorFromFicha(board[i][j]);
                 }
             }
@@ -135,21 +135,23 @@ public class Tablero {
     }
 
     public int askUserColumn() {
-        System.out.println("Enter a column (from 1 to " + this.columna + ")");
         int columnaIngresada;
         do {
             System.out.println("Enter a column (from 1 to " + this.columna + ")");
             columnaIngresada = Tablero.scanner.nextInt();
-        } while(columnaIngresada < 1 || columnaIngresada > this.columna);
+        } while (!(columnaIngresada >= 1 && columnaIngresada < this.columna && this.numPieces[columnaIngresada - 1] < this.fila));
         return columnaIngresada;
     }
 
     public void startMatch() {
-        while (!this.isGameFull() && this.isThereWinner() != Jugador.NONE) {
-            int column = this.askUserColumn();
+
+        while (!this.isGameFull() && this.isThereWinner() == Jugador.NONE) {
+            int column = this.askUserColumn() - 1;
             this.addFichaToColum(column);
             this.showTablero();
         }
+
+        System.out.println("El ganador fue: " + Ficha.associateJugadorToFicha(isThereWinner()));
     }
 
 }
