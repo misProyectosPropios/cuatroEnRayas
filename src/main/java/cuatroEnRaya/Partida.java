@@ -7,11 +7,7 @@ public class Partida {
 
     public static void main(String[] args) {
         Partida partida = new Partida();
-        while (!partida.juego.isGameFull() && partida.juego.isThereWinner() != Jugador.NONE) {
-            int column = partida.juego.askUserColumn();
-            partida.juego.addFichaToColum(column);
-            partida.juego.showTablero();
-        }
+        partida.juego.startMatch();
     }
 
     public Partida() {

@@ -144,4 +144,12 @@ public class Tablero {
         return columnaIngresada;
     }
 
+    public void startMatch() {
+        while (!this.isGameFull() && this.isThereWinner() != Jugador.NONE) {
+            int column = this.askUserColumn();
+            this.addFichaToColum(column);
+            this.showTablero();
+        }
+    }
+
 }
