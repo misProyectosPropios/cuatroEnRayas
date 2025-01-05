@@ -3,8 +3,9 @@ package cuatroEnRaya;
 public class Tablero {
     final private int columna = 7;
     final private int fila = 6;
-    Ficha[][] board = new Ficha[fila][columna];
-    int[] numPieces = new int[columna];
+    private Ficha[][] board = new Ficha[fila][columna];
+    private int[] numPieces = new int[columna];
+    private Ficha fichaToAdd;
 
     /**
      * Init the array named board to be all null
@@ -21,8 +22,9 @@ public class Tablero {
         }
     }
 
-    public Tablero() {
+    public Tablero(Ficha pieza) {
         this.initTablero();
+        fichaToAdd = pieza;
     }
 
     /**
