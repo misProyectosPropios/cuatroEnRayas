@@ -5,7 +5,7 @@ public class Tablero {
     final private int fila = 6;
     private Ficha[][] board = new Ficha[fila][columna];
     private int[] numPieces = new int[columna];
-    private Ficha fichaToAdd;
+    private Jugador jugadorToPlay;
 
     /**
      * Init the array named board to be all null
@@ -22,9 +22,9 @@ public class Tablero {
         }
     }
 
-    public Tablero(Ficha pieza) {
+    public Tablero(Jugador jugador) {
         this.initTablero();
-        fichaToAdd = pieza;
+        jugadorToPlay = jugador;
     }
 
     /**
