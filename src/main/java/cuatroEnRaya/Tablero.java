@@ -1,6 +1,9 @@
 package cuatroEnRaya;
 
+import java.util.Scanner;
+
 public class Tablero {
+    static Scanner scanner = new Scanner(System.in);
     final private int columna = 7;
     final private int fila = 6;
     private Ficha[][] board = new Ficha[fila][columna];
@@ -117,6 +120,16 @@ public class Tablero {
             }
         }
         return Jugador.NONE;
+    }
+
+    public int askUserColumn() {
+        System.out.println("Enter a column (from 1 to " + this.columna + ")");
+        int columnaIngresada;
+        do {
+            System.out.println("Enter a column (from 1 to " + this.columna + ")");
+            columnaIngresada = Tablero.scanner.nextInt();
+        } while(columnaIngresada < 1 && columnaIngresada > this.columna);
+        return columnaIngresada;
     }
 
 }
