@@ -147,11 +147,18 @@ public class Tablero {
 
         while (!this.isGameFull() && this.isThereWinner() == Jugador.NONE) {
             int column = this.askUserColumn() - 1;
+            Tablero.clear();
             this.addFichaToColum(column);
+
             this.showTablero();
         }
 
         System.out.println("El ganador fue: " + Ficha.associateJugadorToFicha(isThereWinner()));
+    }
+
+    public static void clear() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }

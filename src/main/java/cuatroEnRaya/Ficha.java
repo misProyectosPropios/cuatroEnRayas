@@ -1,9 +1,9 @@
 package cuatroEnRaya;
 
 public enum Ficha {
-    YELLOW("🟡"),
-    RED("🔴"),
-    NONE("⚫");
+    YELLOW("Y"),
+    RED("R"),
+    NONE(" ");
 
     String color;
     Ficha(String color) {
